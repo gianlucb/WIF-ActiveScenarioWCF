@@ -1,5 +1,5 @@
 # WIF EXAMPLE #1 - ACTIVE SCENARIO WITH WCF SECURED SERVICE
-This example use WIF with .NET 4.5 to demonstrate the active scenario where a client call an STS to get a token for a target WCF service. There are three actors here: the client (WEB application), the WCF service and the ADFS server (STS).
+This example uses WIF with .NET 4.5 to demonstrate the active scenario where a client call an STS to get a token for a target WCF service. There are three actors here: the client (WEB application), the WCF service and the ADFS server (STS).
 The WCF service is secured with WIF/ADFS, so the client must present a valid token to access the service methods.  
 Active scenario means the client (WEB) have to retrieve the token from the ADFS server (STS) itself. The token retrieved can then be used to call the WCF service.
 
