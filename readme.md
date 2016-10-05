@@ -13,11 +13,9 @@ Active scenario means the client (WEB) have to retrieve the token from the ADFS 
 * This sample uses the simple username endpoint to retrieve the token from ADFS (means username and password are set explicitly on client side - WEB)
 * In this scenario every web users will access the WCF service with the same credentials (hardcoded during the token request) --> this is not a delegation/impersonation scenario
 
-
 ## PREREQUISITES 
 * ADSF server (STS)
 * Domain Controller
-* 1 web server with SSL certificate
              
 ## SETUP
 1. register this WCF service with ADFS --> configure a new **Relying Party**
@@ -27,6 +25,6 @@ Active scenario means the client (WEB) have to retrieve the token from the ADFS 
 2. because we are doing selfhost for WCF service we must manually bind the certificate for SSL (_these steps are not required if IIS is used to host the service_): 
     * *netsh http add sslcert ipport=0.0.0.0:9999 certhash=thumbprint_of_ssl_server_certificate appid={XXXXX-XXXXX-XXXXXX-XXXXX-XXXX-XXXXXX}*      
     * *netsh http add urlacl url=https://+:9999/ user=EVERYONE* 
-3. Change code and set the right certificate thumbprints for _IssuerNameRegistry_ (certificate of the STS signing certificate) and for the ServiceCertificate (cert used for SSL)
+3. Change the code and set the right certificate thumbprint for _IssuerNameRegistry_ (certificate of the STS signing certificate) and for the ServiceCertificate (cert used for SSL)
 4. Host the website and the wcf service on the same machine (or change the WCF service endpoint address)
  
